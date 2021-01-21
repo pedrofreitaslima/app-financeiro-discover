@@ -14,11 +14,11 @@
 </head>
 <body>
   <header>
-    <h1 id="logo">dev.finance$</h1>
+    <h1 id="logo">dev<span>.</span>finance<span>$</span></h1>
   </header>
   <main class="container">
     <section id="balance">
-      <h2>Balanço</h2>
+      <!-- <h2>Balanço</h2> -->
       <div class="card">
         <h3>Entradas</h3>
         <p>R$ 5.000,00</p>
@@ -33,14 +33,19 @@
       </div>
     </section>
     <section id="transaction">
-      <h2>Transações</h2>
+      <div class="new-transaction">
+        <p>
+          <img src="./assets/add_small.png" alt="add button">
+          <a href="">Nova Transação</a>
+        </p>
+      </div>
       <table id="data-table">
-        <caption>Transções financeiras realizadas</caption>
         <thead>
           <tr>
             <th>Descrição</th>
             <th>Valor</th>
             <th>Data</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -48,22 +53,31 @@
             <td class="description">Luz</td>
             <td class="expense">-R$ 500,00</td>
             <td class="date">23/01/2021</td>
+            <td class="actions"><button>
+              <img src="./assets/negative.svg" alt="button remove">
+            </button></td>
           </tr>
           <tr>
             <td class="description">Criação Website</td>
             <td class="income">R$ 5.000,00</td>
             <td class="date">23/01/2021</td>
+            <td class="actions"><button>
+              <img src="./assets/negative.svg" alt="button remove">
+            </button></td>
           </tr>
           <tr>
             <td class="description">Internet</td>
             <td class="expense">- R$ 200,00</td>
             <td class="date">23/01/2021</td>
+            <td class="actions"><button>
+              <img src="./assets/negative.svg" alt="button remove">
+            </button></td>
           </tr>
         </tbody>
       </table>
     </section>
   </main>
-  <footer class="container">
+  <footer>
     <p>
       <address>
         dev.finance$ &copy; 
