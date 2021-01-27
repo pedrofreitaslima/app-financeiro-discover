@@ -8,6 +8,8 @@
   --EMERALD-WATER-GREEN: #348F50;
   --EMERALD-WATER-BLUE: #56B4D3;
   --DARK-PURPLE: #7C2AF5;
+  --green: #49AA26;
+  --light-green: #3dd705;
 }
 
 * {
@@ -16,9 +18,25 @@
   box-sizing: border-box;
 }
 
+html{
+  font-size: 93.75%; /* 15px */
+}
+
 body {
   background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
   font-family: 'Poppins', sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* ---------- TITLES ---------- */
@@ -27,6 +45,59 @@ h2 {
   margin-bottom: 0.8rem;
   color: var(--DARK-BLUE);
   font-weight: normal;
+}
+
+/* ---------- Links and Buttons ---------- */
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--light-green);
+}
+
+button {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+
+  color: white;
+  background: var(--green);
+
+  padding: 0;
+
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+}
+
+.save:hover {
+  background: var(--light-green);
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: .8rem;
+}
+
+.button.cancel {
+  color: var(--LIGHT-RED);
+  border: 2px var(--LIGHT-RED) solid;
+  border-radius: 0.25rem;
+
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.6;
+}
+
+.button.cancel:hover {
+  opacity: 1;
 }
 
 /* ---------- HEADER ---------- */
@@ -38,7 +109,7 @@ header {
 
 #logo {
   color: #fff;
-  font-weight: lighter;
+  font-weight: 100;
   text-shadow: 0.06rem 0.04rem 0.04rem #dcdcdc;
 }
 
@@ -51,10 +122,6 @@ header {
 /* ---------- BALANCE ---------- */
 #balance {
   margin-top: -8rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 #balance h2 {
@@ -79,6 +146,9 @@ header {
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card p {
@@ -87,12 +157,27 @@ header {
   margin-top: 1rem;
 }
 
+.card p.income {
+  color: var(--BRIGHTEST-GREEN);
+}
+
+.card p.expense {
+  color: var(--LIGHT-RED);
+}
+
 .card.total {
   background: var(--LIGHTEST-GREEN);
   color: #fff;
 }
 
 /* ---------- TRANSACTIONS ---------- */
+#transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 4rem;
+}
+
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
@@ -143,6 +228,11 @@ table tbody tr td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
+table thead tr th:last-child, 
+table tbody tr td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
 table tbody td button {
   width: 1.5rem;
   height: 1.5rem;
@@ -180,13 +270,85 @@ td.income {
   color: var(--BRIGHTEST-GREEN);
 }
 
+/* ---------- MODAL ---------- */
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0,0,0,0.7);
+
+  position: fixed;
+  top: 0;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.87) 0.1%, rgba(239,249,251,0.83) 90.1% );
+  padding: 2.4rem;
+
+  position: relative;
+  z-index: 1;
+
+  box-shadow: 1rem 0.5rem 0.5rem #333;
+}
+
+/* ---------- FORM ---------- */
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  border: none;
+  border-radius: 0.2rem;
+
+  padding: 0.8rem;
+
+  width: 100%;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group small{
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
+}
+
 /* ---------- FOOTER ---------- */
 footer {
-  position:  fixed;
+  position:  relative;
   bottom: 0;
   left: 0;
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
   text-align: center;
   line-height: 1.5rem;
   color: var(--DARK-BLUE);
@@ -197,4 +359,17 @@ footer a {
   color: var(--DARK-BLUE);
   opacity: 0.6;
   text-decoration: none;
+}
+
+/* Responsive ===================== */
+@media (min-width: 800px) {
+  html {
+      font-size: 87.5%;
+  }
+
+  #balance {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+  }
 }
