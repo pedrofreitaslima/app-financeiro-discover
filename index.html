@@ -28,7 +28,7 @@
           </span>  
           <img src="./assets/income.svg" alt="Image de entradas">
         </h3>
-        <p class="income">R$ 5.000,00</p>
+        <p id="incomeDisplay" class="income"></p>
       </div>
       <div class="card">
         <h3>
@@ -37,7 +37,7 @@
           </span> 
           <img src="./assets/expense.svg" alt="Image de saídas">
         </h3>
-        <p class="expense">R$ 3.000,00</p>
+        <p id="expenseDisplay" class="expense"></p>
       </div>
       <div class="card total">
         <h3>
@@ -46,7 +46,7 @@
           </span> 
           <img src="./assets/total.svg" alt="Image de total">
         </h3>
-        <p>R$ 10.000,00</p>
+        <p id="totalDisplay"></p>
       </div>
     </section>
     <section id="transaction">
@@ -69,30 +69,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="description">Luz</td>
-            <td class="expense">-R$ 500,00</td>
-            <td class="date">23/01/2021</td>
-            <td class="actions"><button>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </button></td>
-          </tr>
-          <tr>
-            <td class="description">Criação Website</td>
-            <td class="income">R$ 5.000,00</td>
-            <td class="date">23/01/2021</td>
-            <td class="actions"><button>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </button></td>
-          </tr>
-          <tr>
-            <td class="description">Internet</td>
-            <td class="expense">- R$ 200,00</td>
-            <td class="date">23/01/2021</td>
-            <td class="actions"><button>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </button></td>
-          </tr>
+          
         </tbody>
       </table>
     </section>
@@ -102,7 +79,7 @@
     <div class="modal">
         <div id="form">
             <h2>Nova Transação</h2>
-            <form action="">
+            <form action="" onsubmit="Form.submit(event)">
                 <div class="input-group">
                     <label 
                         class="sr-only" 
@@ -161,26 +138,7 @@
       </address>
     </p>
   </footer>
-  <script>
-    const Modal = {
-        open(){
-            // Abrir modal
-            // Adicionar a class active ao modal
-            document
-                .querySelector('.modal-overlay')
-                .classList
-                .add('active')
-
-        },
-        close(){
-            // fechar o modal
-            // remover a class active do modal
-            document
-                .querySelector('.modal-overlay')
-                .classList
-                .remove('active')
-        }
-    }
+  <script src="./index.js">
 
   </script>
 </body>

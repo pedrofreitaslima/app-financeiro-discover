@@ -137,7 +137,7 @@ header {
 .card {
   align-items:center;
   background: #fff;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
   color: var(--DARK-BLUE);
